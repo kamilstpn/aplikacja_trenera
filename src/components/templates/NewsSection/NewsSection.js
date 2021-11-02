@@ -17,20 +17,23 @@ export const query = `
         }
       `;
 
+const API_TOKEN='a80c410f8279423cb67cd5c059f50c';
+
 const NewsSection = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    console.log(process.env.REACT_APP_DATOCMS_TOKEN);
     axios
       .post(
-        'https://graphql.datocms.com/',
+        'https://graphql.datocms.com',
         {
           query,
         },
         {
           headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+            authorization: `Bearer ${API_TOKEN}`,
           },
         }
       )
