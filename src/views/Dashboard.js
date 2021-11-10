@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <Wrapper>
       <TitleWrapper>
-        <Title as="h2">Group {id}</Title>
+        <Title as="h2">Zespół {id}</Title>
         <nav>
           {groups.map((group) => (
             <Link key={group} to={`/group/${group}`}>

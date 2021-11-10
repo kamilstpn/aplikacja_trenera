@@ -40,13 +40,13 @@ const NewsSection = () => {
         setArticles(data.allArticles);
       })
       .catch(() => {
-        setError(`Sorry, we couldn't load articles for you`);
+        setError(`Przepraszamy, nie udało się załadować pliku`);
       });
   }, []);
 
   return (
     <Wrapper>
-      <NewsSectionHeader>University news feed</NewsSectionHeader>
+      <NewsSectionHeader>Newsy sportowe :)</NewsSectionHeader>
       {articles.length > 0 ? (
         articles.map(({ id, title, category, content, image = null }) => (
           <ArticleWrapper key={id}>
@@ -58,11 +58,11 @@ const NewsSection = () => {
               <p>{content}</p>
               {image ? <img src={image.url} alt="article" /> : null}
             </ContentWrapper>
-            <Button isBig>Read more</Button>
+            <Button isBig>Kliknij aby doczytać więcej</Button>
           </ArticleWrapper>
         ))
       ) : (
-        <NewsSectionHeader>{error ? error : 'Loading...'}</NewsSectionHeader>
+        <NewsSectionHeader>{error ? error : 'Ładuję...'}</NewsSectionHeader>
       )}
     </Wrapper>
   );

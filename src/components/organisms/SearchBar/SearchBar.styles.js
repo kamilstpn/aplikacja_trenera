@@ -4,11 +4,12 @@ import { Input } from 'components/atoms/Input/Input';
 export const SearchBarWrapper = styled.div`
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.darkPurple};
+  border-bottom: 5px solid ${({ theme }) => theme.colors.black};
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0 40px;
+
   ${Input} {
     font-size: ${({ theme }) => theme.fontSize.xl};
     width: 100%;

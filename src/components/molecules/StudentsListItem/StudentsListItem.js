@@ -4,16 +4,21 @@ import DeleteButton from 'components/atoms/DeleteButton/DeleteButton';
 import { StyledAverage, StyledInfo, Wrapper } from './StudentsListItem.styles';
 import { UserShape } from 'types';
 
-const StudentsListItem = ({ userData: { average, name, attendance = '0%' } }) => {
+
+const StudentsListItem = ({ userData: { number, name, attendance = '0%' } }) => {
   return (
     <Wrapper>
-      <StyledAverage value={average}>{average}</StyledAverage>
+      <DeleteButton />
+      
       <StyledInfo>
+      
         <p>
-          {name}
-          <DeleteButton />
+        {name}
+
+        <StyledAverage value={number}>{number}</StyledAverage>
         </p>
-        <p>attendance: {attendance}</p>
+        <p>Frekwencja: {attendance}</p>
+        
       </StyledInfo>
     </Wrapper>
   );

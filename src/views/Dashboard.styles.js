@@ -17,15 +17,16 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   nav a {
-    margin-left: 15px;
+    margin-left: 25px;
     display: inline-block;
     text-align: center;
     background-color: white;
-    border-radius: 50px;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
+    border-radius: 5px;
+    padding: 2px;
+    width: 70px;
+    height: 25px;
     text-decoration: none;
+    border: solid;
     color: ${({ theme }) => theme.colors.darkGrey};
     font-weight: bold;
   }

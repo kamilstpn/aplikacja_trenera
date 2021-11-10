@@ -6,12 +6,12 @@ const Navigation = () => {
     <Wrapper>
       <Logo>
         <h1>
-          Study
+          Aplikacja
           <br />
-          Buddy
+          Trenera
         </h1>
       </Logo>
-      <StyledLink to="/group">Dashboard</StyledLink>
+      <StyledLink to="/group">Strona główna</StyledLink>
     </Wrapper>
   );
 };
