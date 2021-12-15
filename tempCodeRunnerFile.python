@@ -1,0 +1,10 @@
+def main():
+    print('Uzytkownik pdoaje liczbe gwiazdek')
+    number = int(input('Podaj liczbe gwiazdek: '))
+    # for stars in range(number):
+    #     print('*')
+    zmienna=0
+    while zmienna < number:
+        print('*')
+        zmienna=zmienna+2
+main()

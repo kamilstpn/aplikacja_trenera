@@ -3,6 +3,8 @@ import { ArticleWrapper, ContentWrapper, NewsSectionHeader, TitleWrapper, Wrappe
 import { Button } from 'components/atoms/Button/Button';
 import axios from 'axios';
 
+const API_TOKEN = 'a80c410f8279423cb67cd5c059f50c';
+
 export const query = `
          {
           allArticles {
@@ -16,8 +18,6 @@ export const query = `
           }
         }
       `;
-
-const API_TOKEN = 'a80c410f8279423cb67cd5c059f50c';
 
 const NewsSection = () => {
   const [articles, setArticles] = useState([]);
@@ -40,13 +40,13 @@ const NewsSection = () => {
         setArticles(data.allArticles);
       })
       .catch(() => {
-        setError(`Przepraszamy, nie udało się załadować pliku`);
+        setError(`Sorry, we couldn't load articles for you`);
       });
   }, []);
 
   return (
     <Wrapper>
-      <NewsSectionHeader>Newsy sportowe :)</NewsSectionHeader>
+      <NewsSectionHeader>Informacje sportowe</NewsSectionHeader>
       {articles.length > 0 ? (
         articles.map(({ id, title, category, content, image = null }) => (
           <ArticleWrapper key={id}>
@@ -58,11 +58,11 @@ const NewsSection = () => {
               <p>{content}</p>
               {image ? <img src={image.url} alt="article" /> : null}
             </ContentWrapper>
-            <Button isBig>Kliknij aby doczytać więcej</Button>
+            <Button isBig>Czytaj dalej</Button>
           </ArticleWrapper>
         ))
       ) : (
-        <NewsSectionHeader>{error ? error : 'Ładuję...'}</NewsSectionHeader>
+        <NewsSectionHeader>{error ? error : 'Loading...'}</NewsSectionHeader>
       )}
     </Wrapper>
   );

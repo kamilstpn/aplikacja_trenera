@@ -8,19 +8,30 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: ${({ theme }) => theme.colors.colorek};
+  padding: 20px;
+  border: solid;
+  border-color: white;
+  border-top-width: 2px;
+
   ${Label} {
+    color: black;
     margin: 10px 0;
   }
 `;
 
-const FormField = ({ onChange, value, label, name, id, type = 'text' }) => {
+const FormField = React.forwardRef(({ onChange, value, label, name, id, type = 'text', isTextarea, ...props }, ref) => {
   return (
     <Wrapper>
       <Label htmlFor={id}>{label}</Label>
-      <Input name={name} id={id} type={type} value={value} onChange={onChange} data-testid={label} />
+      {isTextarea ? (
+        <Input isTextarea as="textarea" name={name} id={id} value={value} onChange={onChange} data-testid={label} {...props} ref={ref} />
+      ) : (
+        <Input name={name} id={id} type={type} value={value} onChange={onChange} data-testid={label} {...props} ref={ref} />
+      )}
     </Wrapper>
   );
-};
+});
 
 FormField.propTypes = {
   label: PropTypes.string.isRequired,

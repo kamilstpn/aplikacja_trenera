@@ -1,18 +1,15 @@
 
 import React from 'react';
-
-import { SearchBarWrapper,  StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
-
-
+import { SearchBarWrapper, StatusInfo } from 'components/organisms/SearchBar/SearchBar.styles';
 export const SearchBar = () => {
   
 
   return (
     <SearchBarWrapper>
       <StatusInfo>
-        <p>Zostałeś zalogowany jako:</p>
+        <p>Zalogowany jako:</p>
         <p>
-          <strong>Trener Jan Nowak</strong>
+          <strong>Trener Kamil Stępień</strong>
         </p>
       </StatusInfo>
       

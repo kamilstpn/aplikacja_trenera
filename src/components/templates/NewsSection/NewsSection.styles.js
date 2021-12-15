@@ -4,18 +4,19 @@ import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 export const Wrapper = styled.div`
   grid-row: 1 / 3;
   grid-column: 3 / 3;
-  border-left: 10px solid ${({ theme }) => theme.colors.black};
+  border-left: 1px solid ${({ theme }) => theme.colors.darkPurple};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 50px;
   overflow-y: scroll;
+  background: ${({ theme }) => theme.colors.darkPurple};
 `;
 
 export const NewsSectionHeader = styled.h2`
   margin-right: auto;
-  color: ${({ theme }) => theme.colors.green};
+  color: ${({ theme }) => theme.colors.colorek};
 `;
 
 export const ArticleWrapper = styled(ViewWrapper)`
@@ -23,7 +24,8 @@ export const ArticleWrapper = styled(ViewWrapper)`
   width: 100%;
   max-width: unset;
   border-radius: 12px;
-  color: ${({ theme }) => theme.colors.green};
+  background: ${({ theme }) => theme.colors.lightPurple};
+  color: ${({ theme }) => theme.colors.darkGrey};
   p {
     line-height: 1.6;
   }

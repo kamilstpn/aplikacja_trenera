@@ -1,18 +1,15 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-  width: 62px;
-  height: 22px;
-  margin: 0 30px;
-  background-color: ${({ theme }) => theme.colors.my_color};
+  width: 100px;
+  height: 20px;
+  margin: 0 10px;
+  background-color: ${({ theme }) => theme.colors.colorek};
   border-radius: 50px;
-  border: solid;
+  border: none;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  svg {
-    width: 150%;
-    height: 120%;
-  }
+  
 `;

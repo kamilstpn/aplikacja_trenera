@@ -1,36 +1,54 @@
-import { useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import axios from 'axios';
 
-export const useStudents = ({ groupId = '' } = {}) => {
-  const [students, setStudents] = useState([]);
-  const [groups, setGroups] = useState([]);
+const studentsAPI = axios.create({});
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const result = await axios.get('/groups');
-        setGroups(result.data.groups);
-      } catch (e) {
-        console.log(e);
-      }
-    })();
+studentsAPI.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      config.headers.authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export const useStudents = () => {
+  const getGroups = useCallback(async () => {
+    try {
+      const result = await studentsAPI.get('/groups');
+      return result.data.groups;
+    } catch (e) {
+      console.log(e);
+    }
   }, []);
 
-  useEffect(() => {
-    if (!groupId) return;
-    (async () => {
-      try {
-        const result = await axios.get(`/students/${groupId}`);
-        setStudents(result.data.students);
-      } catch (e) {
-        console.log(e);
-      }
-    })();
-  }, [groupId]);
+  const getStudentById = useCallback(async (studentId) => {
+    try {
+      const result = await studentsAPI.get(`/students/${studentId}`);
+      return result.data.students;
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
+
+  const getStudentsByGroup = useCallback(async (groupId) => {
+    try {
+      const result = await studentsAPI.get(`/groups/${groupId}`);
+      return result.data.students;
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   const findStudents = async (searchPhrase) => {
     try {
-      const { data } = await axios.post(`/students/search`, {
+      const { data } = await studentsAPI.post(`/students/search`, {
         searchPhrase,
       });
       return data;
@@ -40,8 +58,9 @@ export const useStudents = ({ groupId = '' } = {}) => {
   };
 
   return {
-    students,
-    groups,
+    getGroups,
+    getStudentsByGroup,
     findStudents,
+    getStudentById,
   };
 };
