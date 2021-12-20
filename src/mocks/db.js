@@ -41,7 +41,7 @@ export const db = factory({
     subject: () => faker.fake('{{company.bsAdjective}} {{company.bsNoun}}'),
     date: faker.date.soon,
   },
-  teacher: {
+  coach: {
     id: primaryKey(() => '1'),
     name: () => 'Kamil Stępień',
     login: () => 'kamil.stepien@gmail.com',

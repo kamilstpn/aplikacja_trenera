@@ -8,7 +8,7 @@ export const Wrapper = styled.nav`
   flex-direction: column;
 
   justify-content: flex-start;
-  padding: 30px 0;
+  padding: 0px 0;
   grid-row: 1 / 3;
   grid-column: 1 / 1;
   
@@ -17,7 +17,7 @@ export const Wrapper = styled.nav`
 export const Logo = styled.div`
   background-color: ${({ theme }) => theme.colors.darkPurple};
   width: 100%;
-  height: 60px;
+  height: 90px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
