@@ -5,17 +5,27 @@ export const UsersContext = React.createContext({
   users: [],
   handleAddUser: () => {},
   deleteUser: () => {},
+  zmienna: [],
 });
 
 const UsersProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
+  // const [zmienna, setUsers] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   axios
+  //     .get('/students')
+  //     .then(({ data }) => setUsers(data.students))
+  //     .catch((err) => console.log(err));
+  // }, []);
+  // useEffect(() => {
     axios
-      .get('/students')
-      .then(({ data }) => setUsers(data.students))
-      .catch((err) => console.log(err));
-  }, []);
+      .get('/blockchain')
+       .then(({ zmienna }) => console.log(zmienna))
+       .catch((err) => console.log(err));
+       console.log("xddd")
+  // }, []);
+  
 
   const deleteUser = (name) => {
     const filteredUsers = users.filter((user) => user.name !== name);

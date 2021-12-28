@@ -47,4 +47,9 @@ export const db = factory({
     login: () => 'kamil.stepien@gmail.com',
     password: () => 'test123',
   },
+  blockchain:{
+    id: primaryKey(() =>'2'),
+    data: ()=>'tekst',
+    tresc: ()=> 'tresc',
+   },
 });

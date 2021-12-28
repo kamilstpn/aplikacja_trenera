@@ -16,6 +16,7 @@ const seed = () => {
   });
 
   db.coach.create();
+  // db.zmienna.create();
 
   for (let i = 0; i < 15; i++) {
     db.student.create();

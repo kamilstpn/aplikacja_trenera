@@ -57,10 +57,32 @@ export const useStudents = () => {
     }
   };
 
+  const GetBlockChain = async (searchPhrase) => {
+    try {
+      const { data } = await studentsAPI.get(`/konspekty`, {
+        searchPhrase,
+        
+      });
+      return data;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  // const GetBlockChain = useCallback(async (blockchainId) => {
+  //   try {
+  //     const result = await studentsAPI.get(`/blockchain/${blockchainId}`);
+  //     return result.data.students;
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }, []);
+
   return {
     getGroups,
     getStudentsByGroup,
     findStudents,
     getStudentById,
+    GetBlockChain,
   };
 };
