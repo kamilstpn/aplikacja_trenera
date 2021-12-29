@@ -1,33 +1,13 @@
 const bcrypt = require('bcryptjs')
-
-
 class Block {
-    
-
      constructor(timestamp,previousindex,previousHash,data ){
-            
-        
             this.timestamp=timestamp;
             this.index=previousindex+1;
+            this.hash=   this.calculateHash(this.previousHash,this.data);
+            this.hash=bcrypt.hash(data,10)
             this.previousHash=previousHash;
             this.data=data;
-            
-            this.hash=   this.calculateHash(this.previousHash,this.data);
-            
-
-            this.hash=bcrypt.hash(data,10)
-            // this.hash= await bcrypt.hash(data,10)
-            //  this.calculateHash(this.previousHash,this.data)
-            // .then((hres)=>{
-            //     this.hash=hres
-            //     console.log("tujest")
-            // })asd
-        
-        
-        
-
     }
-
 
     static async initialize(timestamp,previousindex,previousHash,data ){
         this.timestamp=timestamp;
@@ -44,9 +24,7 @@ class Block {
         console.log(new_hash)
         this.hash=new_hash
         return  new_hash
-
     }
-
     Create_GenesisBlock(){
         return new Block(Date.now(),-1,null,"{}")
     }
@@ -54,13 +32,9 @@ class Block {
     GetLatestBlock(){
         return Block
     }
-
-    
-
     addBlock(){
 
     }
-
 
 }
 module.exports = Block
